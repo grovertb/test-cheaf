@@ -33,8 +33,7 @@ class Images {
       }
 
       const { data: { data, totalPages } } = await axios.get(
-        // https://api.groplay.app/
-        `http://localhost:4001/api/v2/imgur?page=${this.page}${this.tag ? `&tag=${this.tag}` : '' }`,
+        `https://api.groplay.app/api/v2/imgur?page=${this.page}${this.tag ? `&tag=${this.tag}` : '' }`,
       )
 
       this.totalPages = totalPages
@@ -43,28 +42,6 @@ class Images {
     } catch (error) {
       this.status = RequestStatus.failed
     }
-  }
-
-  async saveSpecialties() {
-    // try {
-    //   this.status = RequestStatus.loading
-    //   const specialties = this.specialtiesEdit.reduce((result: number[], item: SpecialtyType) => {
-    //     if(item.isDoctorSpecialty) result.push(item.id)
-
-    //     return result
-    //   }, [])
-    //   const resp = await Post(`${API_MS}/v2/users/profile/specialties`, { specialties })
-    //   if(resp.success)
-    //     this.status =  RequestStatus.ready
-    //   else
-    //     this.status = RequestStatus.failed
-
-    //   return resp.success
-    // } catch (error) {
-    //   this.status = RequestStatus.failed
-
-    //   return false
-    // }
   }
 }
 

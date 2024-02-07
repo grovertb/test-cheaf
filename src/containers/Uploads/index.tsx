@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Container, ImageList, ImageListItem, Paper } from '@mui/material'
+import { ImageList, ImageListItem, Paper } from '@mui/material'
 import { collection, onSnapshot } from 'firebase/firestore'
 
 import { firestore, listAllImages } from '../../utils/firebase'
 import UploadButton from '../../components/Uploads/UploadButton'
+
+import Root, { classes } from './styles'
 
 const Uploads: React.FC = () => {
   const [ images, setImages ] = useState<string[]>([])
@@ -25,7 +27,7 @@ const Uploads: React.FC = () => {
   }, [])
 
   return (
-    <Container>
+    <Root>
       <UploadButton />
       <ImageList
         cols={6}
@@ -37,14 +39,14 @@ const Uploads: React.FC = () => {
             <ImageListItem component={Paper} key={index}>
               <img
                 alt={`upload-${index}`}
+                className={classes.imageCard}
                 loading='lazy'
-                src={imageUrl}
-                style={{ height: '100%', objectFit: 'contain' }} />
+                src={imageUrl} />
             </ImageListItem>
           ))
         }
       </ImageList>
-    </Container>
+    </Root>
   )
 }
 

@@ -1,10 +1,12 @@
 import { ChangeEvent, useRef, useState } from 'react'
-import { Fab, CircularProgress } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import { CloudUpload as CloudUploadIcon } from '@mui/icons-material'
 
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { addDoc, collection } from 'firebase/firestore'
 import { firestore, storage } from '../../../utils/firebase'
+
+import Root, { classes } from './styles'
 
 const UploadButton = () => {
   const [ progress, setProgress ] = useState(0)
@@ -42,7 +44,7 @@ const UploadButton = () => {
   }
 
   return (
-    <Fab
+    <Root
       color='primary'
       disabled={uploading}
       onClick={_handleButtonClick}
@@ -67,11 +69,11 @@ const UploadButton = () => {
       }
       <input
         accept='image/*'
+        className={classes.hidden}
         onChange={_handleFileChange}
         ref={fileInputRef}
-        style={{ display: 'none' }}
         type='file' />
-    </Fab>
+    </Root>
   )
 }
 

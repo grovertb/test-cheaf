@@ -39,6 +39,6 @@ export default createTheme({
 
 declare module '@mui/material/IconButton' {
   interface IconButtonOwnProps {
-    variant?: string;
+    variant?: 'bordered' | 'squared';
   }
 }

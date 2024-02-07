@@ -1,4 +1,3 @@
-import { Masonry } from '@mui/lab'
 import { styled } from '@mui/material'
 
 const PREFIX = 'Listimages'
@@ -7,12 +6,13 @@ export const classes = {
   image: `${PREFIX}-image`
 }
 
-export default styled(Masonry, {
+export default styled('div', {
   name: PREFIX
 })(() => ({
-  overflow                   : 'hidden',
-  [`& .${classes.image} img`]: {
-    borderRadius: 24,
-    width       : '100%'
+  [`& .${classes.image}`]: {
+    '&:hover': {
+      cursor: 'pointer'
+    },
+    borderRadius: 24
   }
 }))

@@ -2,6 +2,10 @@ import { TextField, styled } from '@mui/material'
 
 const PREFIX = 'InputSearch'
 
+export const classes = {
+  icon: `${PREFIX}-icon`
+}
+
 export default styled(TextField, {
   name: PREFIX
 })({
@@ -17,7 +21,10 @@ export default styled(TextField, {
   '& fieldset': {
     border: 'none'
   },
-  border      : '2px solid',
-  borderRadius: 24,
-  boxShadow   : '-8px 7px 20px 0px rgba(0,0,0,0.15)'
+  border                : '2px solid',
+  borderRadius          : 24,
+  boxShadow             : '-8px 7px 20px 0px rgba(0,0,0,0.15)',
+  [`& .${classes.icon}`]: {
+    transform: 'scaleX(-1)'
+  }
 })

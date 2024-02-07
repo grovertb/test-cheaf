@@ -5,7 +5,7 @@ import { ReplyRounded as ReplyRoundedIcon } from '@mui/icons-material'
 import useDebounceText from '../../../utils/hooks'
 import { imagesStore } from '../../../store/images'
 
-import Root from './styles'
+import Root, { classes } from './styles'
 
 const InputSearch = () => {
   const [ searchTag, setSearchTag ] = useState('')
@@ -24,7 +24,7 @@ const InputSearch = () => {
       InputProps={{
         endAdornment: (
           <IconButton>
-            <ReplyRoundedIcon style={{ transform: 'scaleX(-1)' }} />
+            <ReplyRoundedIcon className={classes.icon} />
           </IconButton>
         )
       }}
